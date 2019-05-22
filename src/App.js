@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import LoginWithHooks from './LoginWithHooks';
 
 function App() {
   return (
     <div className="App">
-      <h1>React Hooks Simple Login App</h1>
+      <LoginWithHooks />
     </div>
   );
 }
