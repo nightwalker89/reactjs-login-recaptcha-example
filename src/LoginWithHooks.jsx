@@ -55,7 +55,7 @@ function loginReducer(state, action) {
   }
 }
 
-export default function LoginWithHooks() {
+export default function LoginWithReducer() {
   const [state, dispatch] = useReducer(loginReducer, initialState);
   const { username, password, isLoading, isLoggedIn, error } = state;
 
@@ -72,7 +72,7 @@ export default function LoginWithHooks() {
 
   return (
     <div className="App">
-      <div>
+      <div className="login-container">
         {isLoggedIn ? (
           <>
             <h1>Welcome {username}!</h1>
@@ -81,8 +81,8 @@ export default function LoginWithHooks() {
             </button>
           </>
         ) : (
-          <form onSubmit={handleSubmit}>
-            {error && <p>{error} </p>}
+          <form className="form" onSubmit={handleSubmit}>
+            {error && <p className="error">{error} </p>}
             <p>Please Login!</p>
             <input
               type="text"
@@ -108,7 +108,7 @@ export default function LoginWithHooks() {
                 })
               }
             />
-            <button type="submit" disabled={isLoading}>
+            <button className="submit" type="submit" disabled={isLoading}>
               {isLoading ? 'Logging In.....' : 'Log In'}
             </button>
           </form>
