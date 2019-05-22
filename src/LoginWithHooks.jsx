@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect, useRef } from 'react';
 import { verifyLogin } from './utils';
 
 const initialState = {
@@ -21,7 +21,8 @@ function loginReducer(state, action) {
       return {
         ...state,
         error: '',
-        isLoading: true
+        isLoading: true,
+        isFocused: true
       };
     }
     case 'success': {
@@ -38,7 +39,8 @@ function loginReducer(state, action) {
         isLoggedIn: false,
         isLoading: false,
         username: '',
-        password: ''
+        password: '',
+        isFocused: true
       };
     }
     case 'logout': {
@@ -57,7 +59,8 @@ function loginReducer(state, action) {
 
 export default function LoginWithReducer() {
   const [state, dispatch] = useReducer(loginReducer, initialState);
-  const { username, password, isLoading, isLoggedIn, error } = state;
+  const { username, password, isLoading, isLoggedIn, error, isFocused } = state;
+  const usernameRef = useRef(null);
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -69,6 +72,12 @@ export default function LoginWithReducer() {
       dispatch({ type: 'error' });
     }
   };
+
+  useEffect(() => {
+    if (isFocused) {
+      usernameRef.current.focus();
+    }
+  }, [isFocused]);
 
   return (
     <div className="App">
@@ -86,8 +95,10 @@ export default function LoginWithReducer() {
             <p>Please Login!</p>
             <input
               type="text"
+              ref={usernameRef}
               placeholder="Enter username"
               value={username}
+              autoFocus
               onChange={e =>
                 dispatch({
                   type: 'field',
