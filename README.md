@@ -1,6 +1,6 @@
 ## React Hooks Simple Login App
 
-This simple React login project has been developed to show how React Hooks can make functional components control state, negating the need to write complex class components.
+This simple ReactJS login form has been developed to show how React Hooks can make functional components control state, negating the need to write complex class components.
 The Login credentials are:-
 
 ```
@@ -47,7 +47,7 @@ To start a ReactJS instance locally, please run the command:
 npm run start
 ```
 
-This will start the app running on localhost, port 3000.
+This will start the app running on localhost, port 3000 for you to view in your browser.
 
 ## Links
 
