@@ -1,6 +1,8 @@
 ## React Hooks Simple Login App
 
 This simple ReactJS login form has been developed to show how React Hooks can make functional components control state, negating the need to write complex class components.
+I followed a tutorial to learn how these new features of ReactJS work, however I refactored where possible, trying to put my own stamp on project.
+
 The Login credentials are:-
 
 ```
@@ -41,7 +43,7 @@ To install the required dependencies, run the command:
 npm install
 ```
 
-To start a ReactJS instance locally, please run the command:
+To start the Login instance locally, please run the command:
 
 ```
 npm run start
